@@ -64,6 +64,6 @@ public class UserAddsItemToCartAndCheckoutTheItem extends BaseClass {
     }
     @And("user registers himself")
     public void user_registers_himself() {
-        System.out.println("user registers himself");
+        pageFactory.getRegisterUserPage().registerUser();
     }
 }

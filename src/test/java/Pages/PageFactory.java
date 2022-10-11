@@ -8,6 +8,7 @@ public class PageFactory {
     private ComputersPage computersPage;
     private NotebooksPage notebooksPage;
     private CartPage cartPage;
+    private RegisterUserPage registerUserPage;
 
     public PageFactory(WebDriver driver) {
         this.driver = driver;
@@ -39,5 +40,12 @@ public class PageFactory {
             cartPage = new CartPage(driver);
         }
         return cartPage;
+    }
+
+    public RegisterUserPage getRegisterUserPage() {
+        if (registerUserPage == null) {
+            registerUserPage = new RegisterUserPage(driver);
+        }
+        return registerUserPage;
     }
 }
