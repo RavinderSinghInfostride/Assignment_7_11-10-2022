@@ -42,12 +42,14 @@ public class CheckoutPage {
         XSSFSheet sheet = wb.getSheet("Sheet1");
         String city = sheet.getRow(2).getCell(0).getStringCellValue();
         String address1 = sheet.getRow(2).getCell(1).getStringCellValue();
+        String zipCode = sheet.getRow(2).getCell(2).getStringCellValue();
+        String phoneNumber = sheet.getRow(2).getCell(3).getStringCellValue();
         driver.findElement(By.xpath(String.format(editAddressDropdown, CheckoutPage_NopCommerceEnums.AddressDetails_CountryDropdown_Name.getResourcesName()))).click();
         driver.findElement(By.xpath(String.format(countryDropdownOption, "133"))).click();
         driver.findElement(By.xpath(String.format(editAddressInputBox, CheckoutPage_NopCommerceEnums.AddressDetails_City_Name.getResourcesName()))).sendKeys(city);
         driver.findElement(By.xpath(String.format(editAddressInputBox, CheckoutPage_NopCommerceEnums.AddressDetails_Address1_Name.getResourcesName()))).sendKeys(address1);
-        driver.findElement(By.xpath(String.format(editAddressInputBox, CheckoutPage_NopCommerceEnums.AddressDetails_ZipCode_Name.getResourcesName()))).sendKeys("123456");
-        driver.findElement(By.xpath(String.format(editAddressInputBox, CheckoutPage_NopCommerceEnums.AddressDetails_PhoneNumber_Name.getResourcesName()))).sendKeys("999999999");
+        driver.findElement(By.xpath(String.format(editAddressInputBox, CheckoutPage_NopCommerceEnums.AddressDetails_ZipCode_Name.getResourcesName()))).sendKeys(zipCode);
+        driver.findElement(By.xpath(String.format(editAddressInputBox, CheckoutPage_NopCommerceEnums.AddressDetails_PhoneNumber_Name.getResourcesName()))).sendKeys(phoneNumber);
     }
 
     public void checkoutSteps() {
