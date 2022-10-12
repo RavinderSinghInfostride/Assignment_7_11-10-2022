@@ -3,13 +3,10 @@ package Pages;
 import Enums.NotebooksPage_NopCommerceEnums;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -22,12 +19,12 @@ public class NotebooksPage {
     By sortByDropdown = By.xpath("//select[@name='products-orderby']");
     String sortByDropdownOptions = "//select[@name='products-orderby']//option[contains(text(),'%s')]";
     By displayDropdown = By.xpath("//select[@name='products-pagesize']");
-    By displayDropdownOptions = By.xpath("//option[contains(@value,'9')]");
+    By displayDropdownOptions = By.xpath("//option[@value=9]");
     By notebooksProductsHeading = By.xpath("//div[@class='item-grid']//div[@class='item-box']//div[@class='details']//h2");
     By notebooksProductsPrice = By.xpath("//div[@class='item-grid']//div[@class='item-box']//div[@class='details']//span");
     String addToCartButton = "(//div[@class='details']//h2//a[contains(text(),'%s')]//following::div[@class='buttons']//button)[1]";
     By addToCartConfirmationMessage = By.xpath("//div[contains(@class,'bar-notification')]//p");
-    By shoppingCartLink = By.xpath("//a[@class='ico-cart']");
+    String headerLinks = "//div[@class='header-links']//a[@class='%s']";
 
     public NotebooksPage(WebDriver driver) {
         this.driver = driver;
@@ -42,7 +39,7 @@ public class NotebooksPage {
     public void displayDropdownOptionSelect() {
         driver.findElement(displayDropdown).click();
         wait.until(ExpectedConditions.elementToBeClickable(displayDropdownOptions));
-        driver.findElement(displayDropdownOptions);
+        driver.findElement(displayDropdownOptions).click();
     }
 
     public void fetchNameAndPriceOfProducts() {
@@ -74,6 +71,6 @@ public class NotebooksPage {
 
     public void navigateToShoppingCart() {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(addToCartConfirmationMessage));
-        driver.findElement(shoppingCartLink).click();
+        driver.findElement(By.xpath(String.format(headerLinks, NotebooksPage_NopCommerceEnums.AddToCartHeaderLink_Class.getResourcesName()))).click();
     }
 }

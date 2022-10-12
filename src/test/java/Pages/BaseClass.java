@@ -24,8 +24,7 @@ public class BaseClass {
         pageFactory = new PageFactory(driver);
     }
 
-    public void closeBrowser()
-    {
+    public void closeBrowser() {
         driver.close();
     }
 }

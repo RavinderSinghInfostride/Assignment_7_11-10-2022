@@ -1,4 +1,5 @@
 Feature: To validate user is able to add any item to card and checkout the item
+
   Scenario: user adds item to cart and checkout the item from cart
     Given user is navigated to the website
     And user navigates to the computer section
@@ -12,3 +13,7 @@ Feature: To validate user is able to add any item to card and checkout the item
     And user clicks on the checkout button
     And user clicks on the register button
     And user registers himself
+    And user increases the quantity of product by 4
+    When user fill the checkout details and checkout
+    Then the order is placed and verified
+    And browser closes

@@ -4,6 +4,7 @@ import Pages.BaseClass;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import java.io.IOException;
 
 public class UserAddsItemToCartAndCheckoutTheItem extends BaseClass {
@@ -62,8 +63,31 @@ public class UserAddsItemToCartAndCheckoutTheItem extends BaseClass {
     public void user_clicks_on_the_register_button() {
         pageFactory.getCartPage().clickOnRegisterButton();
     }
+
     @And("user registers himself")
-    public void user_registers_himself() {
+    public void user_registers_himself() throws IOException {
         pageFactory.getRegisterUserPage().registerUser();
+    }
+
+    @And("user increases the quantity of product by {int}")
+    public void user_increases_the_quantity_of_product_by(Integer int1) {
+        pageFactory.getCartPage().increaseProductQuantity();
+        pageFactory.getCartPage().checkoutButtonClick();
+    }
+
+    @When("user fill the checkout details and checkout")
+    public void user_fill_the_checkout_details_and_checkout() throws IOException {
+        pageFactory.getCheckoutPage().fillShippingDetails();
+        pageFactory.getCheckoutPage().checkoutSteps();
+    }
+
+    @Then("the order is placed and verified")
+    public void the_order_is_placed_and_verified() {
+        pageFactory.getCheckoutPage().orderVerify();
+    }
+
+    @And("browser closes")
+    public void browser_closes() {
+        closeBrowser();
     }
 }
