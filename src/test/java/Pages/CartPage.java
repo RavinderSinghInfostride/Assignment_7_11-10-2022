@@ -37,5 +37,6 @@ public class CartPage {
         driver.findElement(productQuantityInputBox).clear();
         driver.findElement(productQuantityInputBox).sendKeys("4");
         driver.findElement(By.xpath(String.format(commonButtons, CartPage_NopCommerceEnums.CommonButtons_Name_UpdateCart.getResourcesName()))).click();
+        driver.findElement(By.xpath(String.format(commonButtons, CartPage_NopCommerceEnums.CommonButtons_Name_UpdateCart.getResourcesName()))).click();
     }
 }

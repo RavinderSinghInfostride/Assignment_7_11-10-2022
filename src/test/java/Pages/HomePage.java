@@ -13,7 +13,7 @@ public class HomePage {
         this.driver = driver;
     }
 
-    public void navigateToComputersPage() {
-        driver.findElement(By.xpath(String.format(navMenuOptions, HomePageNavMenuOption_NopCommerceEnums.NavMenuOptions_Name_Computers.getResourcesName()))).click();
+    public void navigateToComputersPage(HomePageNavMenuOption_NopCommerceEnums value) {
+        driver.findElement(By.xpath(String.format(navMenuOptions, value.getResourcesName()))).click();
     }
 }

@@ -1,5 +1,6 @@
 package StepDefinition;
 
+import Enums.HomePageNavMenuOption_NopCommerceEnums;
 import Pages.BaseClass;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,7 +16,7 @@ public class UserAddsItemToCartAndCheckoutTheItem extends BaseClass {
 
     @And("user navigates to the computer section")
     public void user_navigates_to_the_computer_section() {
-        pageFactory.getHomePage().navigateToComputersPage();
+        pageFactory.getHomePage().navigateToComputersPage(HomePageNavMenuOption_NopCommerceEnums.NavMenuOptions_Name_Computers);
     }
 
     @And("user clicks on the notebooks")
@@ -23,8 +24,8 @@ public class UserAddsItemToCartAndCheckoutTheItem extends BaseClass {
         pageFactory.getComputersPage().navigateToNotebooksPage();
     }
 
-    @And("user sort the items by price \\(low to high) and display filter to maximum {int}")
-    public void user_sort_the_items_by_price_low_to_high_and_display_filter_to_maximum(Integer int1) {
+    @And("user sort the items by price \\(low to high) and display filter to maximum nine")
+    public void user_sort_the_items_by_price_low_to_high_and_display_filter_to_maximum_nine() {
         pageFactory.getNotebooksPage().sortByDropdownOptionSelect();
         pageFactory.getNotebooksPage().displayDropdownOptionSelect();
     }
@@ -69,8 +70,8 @@ public class UserAddsItemToCartAndCheckoutTheItem extends BaseClass {
         pageFactory.getRegisterUserPage().registerUser();
     }
 
-    @And("user increases the quantity of product by {int}")
-    public void user_increases_the_quantity_of_product_by(Integer int1) {
+    @And("user increases the quantity of product by four")
+    public void user_increases_the_quantity_of_product_by_four() {
         pageFactory.getCartPage().increaseProductQuantity();
         pageFactory.getCartPage().checkoutButtonClick();
     }

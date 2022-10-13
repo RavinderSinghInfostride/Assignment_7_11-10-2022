@@ -22,7 +22,7 @@ public class NotebooksPage {
     By displayDropdownOptions = By.xpath("//option[@value=9]");
     By notebooksProductsHeading = By.xpath("//div[@class='item-grid']//div[@class='item-box']//div[@class='details']//h2");
     By notebooksProductsPrice = By.xpath("//div[@class='item-grid']//div[@class='item-box']//div[@class='details']//span");
-    String addToCartButton = "(//div[@class='details']//h2//a[contains(text(),'%s')]//following::div[@class='buttons']//button)[1]";
+    String addToCartButton = "//div[@class='item-grid']//a[contains(text(),'%s')]//following::button[contains(@class,'product-box-add-to-cart-button')]";
     By addToCartConfirmationMessage = By.xpath("//div[contains(@class,'bar-notification')]//p");
     String headerLinks = "//div[@class='header-links']//a[@class='%s']";
 
